@@ -114,7 +114,7 @@
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/area"
           style="@style/textViewStyle"
-          android:text="@{AppUtils.formatNumber(country.area), default=@string/area}" />
+          android:text="@{AppUtils.formatNumber(country.area) + ` sq. km`, default=@string/area}" />
       </LinearLayout>
       <LinearLayout style="@style/layout_linear_horizontal">
 

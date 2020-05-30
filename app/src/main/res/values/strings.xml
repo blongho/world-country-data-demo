@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!--
+<?xml version="1.0" encoding="UTF-8" ?><!--
   ~ MIT License
   ~
   ~ Copyright (c) 2020 Bernard Longho
@@ -99,6 +98,11 @@
   <string name="report_an_issue">Report an issue</string>
   <string name="app_issue_report_url">https://github.com/blongho/world-country-data-demo/issues</string>
   <string name="share_with_friends_text">I like to share with you Country Data demo app \n https://play.google.com/store/apps/details?id=</string>
-  <string name="share_with_title">Share this app using...</string>
+  <string name="share_with_title">Share this app using…</string>
   <string name="oss_libraries">"Open source libraries "</string>
+  <string name="app_tos_url">https://blongho.github.io/world-country-data-demo/info/tos.html</string>
+  <string name="app_privacy_url">https://blongho.github.io/world-country-data-demo/info/privacy.html</string>
+  <string name="info">Info</string>
+  <string name="privacy_policy">Privacy policy</string>
+  <string name="terms_of_service">Terms of Service</string>
 </resources>

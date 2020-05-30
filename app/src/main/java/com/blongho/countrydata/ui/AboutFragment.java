@@ -167,35 +167,30 @@ public class AboutFragment extends MaterialAboutFragment {
         Uri.parse(getString(R.string.app_issue_report_url)))
         .setIconRes(R.drawable.ic_bug));
 
-    Builder openSourceLibraries = new Builder();
-    openSourceLibraries.title(getString(R.string.oss_libraries));
-    openSourceLibraries.addItem(new MaterialAboutActionItem.Builder()
+    Builder info = new Builder();
+    info.title(getString(R.string.info));
+    info.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
+        new IconicsDrawable(c)
+            .sizeDp(18),
+        getString(R.string.privacy_policy),
+        false,
+        Uri.parse(getString(R.string.app_privacy_url)))
+        .setIconRes(R.drawable.ic_privacy));
+
+    info.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
+        new IconicsDrawable(c)
+            .sizeDp(18),
+        getString(R.string.terms_of_service),
+        false,
+        Uri.parse(getString(R.string.app_tos_url)))
+        .setIconRes(R.drawable.ic_info));
+
+    info.addItem(new MaterialAboutActionItem.Builder()
         .text(R.string.oss_libraries)
         .setOnClickAction(this::openSources)
         .build());
-
-    MaterialAboutCard materialAboutLibraryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        "material-about-library", "2016", "Daniel Stone",
-        OpenSourceLicense.APACHE_2);
-    Builder otherCardBuilder = new Builder();
-    otherCardBuilder.title("Other");
-
-    otherCardBuilder.cardColor(Color.parseColor("#c0cfff"));
-
-    otherCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-        .icon(new IconicsDrawable(c)
-            .sizeDp(18))
-        .text("HTML Formatted Sub Text")
-        .subTextHtml(
-            "This is <b>HTML</b> formatted <i>text</i> <br /> This is very cool because it allows lines to get very long which can lead to all kinds of possibilities. <br /> And line breaks. <br /> Oh and by the way, this card has a custom defined background.")
-        .setIconGravity(MaterialAboutActionItem.GRAVITY_TOP)
-        .build()
-    );
-
     return new MaterialAboutList(appCardBuilder.build(), authorCardBuilder.build(),
-        communicationBuilder.build(), openSourceLibraries.build());
+        communicationBuilder.build(), info.build());
   }
 
   private void openSources() {
@@ -217,45 +212,6 @@ public class AboutFragment extends MaterialAboutFragment {
     }
   }
 
-  public static MaterialAboutList createMaterialAboutLicenseList(final Context c) {
-
-    MaterialAboutCard materialAboutLibraryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        "material-about-library", "2016", "Daniel Stone",
-        OpenSourceLicense.APACHE_2);
-
-    MaterialAboutCard androidIconicsLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        "Android Iconics", "2016", "Mike Penz",
-        OpenSourceLicense.APACHE_2);
-
-    MaterialAboutCard leakCanaryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        "LeakCanary", "2015", "Square, Inc",
-        OpenSourceLicense.APACHE_2);
-
-    MaterialAboutCard mitLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        "MIT Example", "2017", "Matthew Ian Thomson",
-        OpenSourceLicense.MIT);
-
-    MaterialAboutCard gplLicenseCard = ConvenienceBuilder.createLicenseCard(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        "GPL Example", "2017", "George Perry Lindsay",
-        OpenSourceLicense.GNU_GPL_3);
-
-    return new MaterialAboutList(
-        materialAboutLibraryLicenseCard,
-        androidIconicsLicenseCard,
-        leakCanaryLicenseCard,
-        mitLicenseCard,
-        gplLicenseCard);
-  }
 
   @Override
   protected MaterialAboutList getMaterialAboutList(final Context activityContext) {
