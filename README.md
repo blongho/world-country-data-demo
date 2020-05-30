@@ -7,8 +7,9 @@ It uses the Model View ViewModel pattern and the Navigation Graph
 
 ## Feedback
 - For issues related to this sample app, please use the [issues tracker](https://github.com/blongho/world-country-data-demo/issues)
-<br>
-- For issues concerning World Country Data, file an issue report [at its repository](https://github.com/blongho/worldCountryData/issues)
+
+- For issues concerning World Country Data, file an issue report [World Country Data issues](https://github.com/blongho/worldCountryData/issues)
+
 
 
 ## Contact
