@@ -65,7 +65,7 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
       } else {
         final String pattern = constraint.toString().toLowerCase().trim();
         List<Country> copy = getListCopy();
-        Log.d(TAG, "performFiltering: List copy size is " + copy.size());
+     //Log.d(TAG, "performFiltering: List copy size is " + copy.size());
 
         // there can be an exception when parsing values, we catch them and proceed as if nothing
         // happened
@@ -104,7 +104,7 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
           }
         }
       }
-      Log.i(TAG, "performFiltering: Filtered list size " + filteredList.size());
+      //Log.i(TAG, "performFiltering: Filtered list size " + filteredList.size());
       FilterResults results = new FilterResults();
       results.values = filteredList;
       return results;

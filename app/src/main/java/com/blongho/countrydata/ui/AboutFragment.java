@@ -81,7 +81,7 @@ public class AboutFragment extends MaterialAboutFragment {
 
     Builder authorCardBuilder = new Builder();
     authorCardBuilder.title(getString(R.string.app_author));
-    authorCardBuilder.titleColor(ContextCompat.getColor(c, R.color.colorAccent));
+    //authorCardBuilder.titleColor(ContextCompat.getColor(c, R.color.colorAccent));
 
     authorCardBuilder.addItem(new MaterialAboutActionItem.Builder()
         .text(R.string.author_name)
