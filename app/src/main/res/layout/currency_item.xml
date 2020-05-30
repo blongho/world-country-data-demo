@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2020 Bernard Longho
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ndroid="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="country"
+        type="com.blongho.country_data.Country" />
+
+</data>
+    <GridLayout
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/spacing_72dp"
+      android:layout_margin="@dimen/spacing_4dp"
+      android:elevation="2dp"
+      android:columnCount="3"
+      android:padding="@dimen/spacing_4dp"
+      android:background="#fafafa"
+      android:rowCount="2">
+        <ImageView
+          android:id="@+id/currency_flag"
+          android:layout_width="@dimen/item_view_height"
+          android:layout_height="@dimen/item_view_height"
+          android:layout_row="0"
+          android:layout_rowSpan="2"
+          android:layout_column="0"
+          android:contentDescription="@string/currency_country"
+          android:src="@drawable/cm"
+          ndroid:scaleType="centerCrop" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/country_name"
+          style="@style/textViewLeft"
+          android:layout_row="0"
+          android:layout_column="1"
+          android:layout_marginTop="@dimen/default_margin"
+          android:text="@{country.name, default=@string/country_name}" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/country_capital"
+          style="@style/textViewLeft"
+          android:layout_width="wrap_content"
+          android:layout_column="1"
+          android:text="@{country.capital, default=@string/country_capital}" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/currency_name"
+          style="@style/textViewRight"
+          android:layout_row="0"
+          android:layout_column="2"
+          android:layout_gravity="end"
+          android:layout_marginTop="@dimen/default_margin"
+          android:text="@{country.currency.name, default=@string/currency_name}" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/currency_symbol"
+          style="@style/textViewRight"
+          android:layout_row="1"
+          android:layout_column="2"
+          android:layout_gravity="end"
+          android:text="@{country.currency.symbol, default=@string/currency_symbol}"
+          android:textAlignment="textEnd"
+          android:textSize="14sp" />
+    </GridLayout>
+</layout>

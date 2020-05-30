@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2020 Bernard Longho
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<resources>
+  <string name="app_name">World Country Data Demo</string>
+  <string name="action_settings">Settings</string>
+  <!-- Strings used for fragments for navigation -->
+  <string name="first_fragment_label">Country List</string>
+  <string name="second_fragment_label">Country Details</string>
+
+  <string name="currency_country">Currency Country use</string>
+  <string name="currency_code">Currency code</string>
+  <string name="currency_symbol">Currency symbol</string>
+  <string name="currency_name">Currency name</string>
+  <string name="country_name">Country name</string>
+  <string name="country_capital">Country capital</string>
+  <string name="currency_amount_symbol">Currency amount</string>
+  <string name="currency_conversion_rate">currency conversion rate</string>
+  <string name="currency_menu">currency shortcut</string>
+  <string name="demo_image">Demo image</string>
+  <string name="update_flag">Earth</string>
+  <string name="numericCode">Numeric Code </string>
+  <string name="countryName">Country Name </string>
+  <string name="currency">Currency</string>
+  <string name="alpha3">Alpha3</string>
+  <string name="alpha2">Alpha2</string>
+  <string name="capital">Capital</string>
+  <string name="area">Area</string>
+  <string name="continent">Continent</string>
+  <string name="population">Population</string>
+  <string name="country_code_default">0</string>
+  <string name="details_of">Details of %1$s</string>
+  <string name="details_header_default">Details of country</string>
+  <string name="title_action_going_back">Confirm exit</string>
+  <string name="confirm_message">Do you really want to exit the application?</string>
+  <string name="previous">Go back to list</string>
+  <string name="about">
+    This app is developed by Bernard Che Longho
+
+    The application is developed to show-case the use of an Android Open Source Project
+    World Country Data that has the flags of the countries of the world as well as other
+    country attributes.
+
+    The project uses the following Open source Licences
+    <a href='https://blongho.github.io/worldCountryData/'>World Country Data</a> -> MIT Licence\n
+    <a href='https://github.com/aNNiMON/Lightweight-Stream-API'>Stream API from Java 8 rewritten
+      on iterators for Java 7 and below</a>  -> Apache License 2.0\n
+  </string>
+  <string name="info_page_loading">Loading…</string>
+  <string name="prompt_polite_waite">Please wait…</string>
+  <string name="search">Search any thing about a country</string>
+  <!-- AUTHOR DATA-->
+  <string name="author_name">Bernard Longho</string>
+  <string name="author_social_email">blongho02@gmail.com</string>
+  <string name="author_website">https://blongho.github.io/</string>
+  <string name="author_location">Stockholm, Sweden</string>
+  <string name="author_avatar_url">https://blongho.github.io/profile/bernard.jpg</string>
+  <string name="author_social_url_twitter">https://twitter.com/blongho</string>
+  <string name="author_social_url_github">https://github.com/blongho</string>
+  <string name="author_social_url_linkedIn">https://www.linkedin.com/in/blongho</string>
+  <string name="app_author">Author</string>
+  <string name="app_version">Version</string>
+  <string name="app_send_author_email">Send me an email</string>
+  <string name="author_social_handle_twitter">@blongho</string>
+  <string name="author_social_handle_github">@blongho</string>
+  <string name="author_social_handle_linkedIn">@blongho</string>
+  <!--END  AUTHOR DATA-->
+  <string name="country_data_url">https://github.com/blongho/worldCountryData</string>
+  <string name="country_data_version">v1.4</string>
+  <string name="app_source_code_url">https://github.com/blongho/world-country-data-demo</string>
+  <string name="communication">Communication</string>
+  <string name="country_data_library">Country Data Library</string>
+  <string name="app_source_code">App source code</string>
+  <string name="visit_library">Visit Library</string>
+  <string name="rate_this_app">Rate this app</string>
+  <string name="share_with_friends">Share app with friends</string>
+  <string name="report_an_issue">Report an issue</string>
+  <string name="app_issue_report_url">https://github.com/blongho/world-country-data-demo/issues</string>
+  <string name="share_with_friends_text">I like to share with you Country Data demo app \n https://play.google.com/store/apps/details?id=</string>
+  <string name="share_with_title">Share this app using...</string>
+  <string name="oss_libraries">"Open source libraries "</string>
+</resources>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2020 Bernard Longho
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+    <import type="com.blongho.countrydata.MainActivity.AppUtils" />
+    <variable
+      name="country"
+      type="com.blongho.country_data.Country" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:id="@+id/countryInfo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/default_margin"
+      android:gravity="center_vertical"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toStartOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+      <LinearLayout style="@style/layout_linear_horizontal">
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/numericCode" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/numericCode"
+          style="@style/textViewStyle"
+          android:text="@{country.id + ``, default=@string/country_code_default}" />
+      </LinearLayout>
+
+      <LinearLayout style="@style/layout_linear_horizontal">
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/countryName" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/countryName"
+          style="@style/textViewStyle"
+          android:text="@{country.name, default=@string/countryName}" />
+      </LinearLayout>
+      <LinearLayout style="@style/layout_linear_horizontal">
+        <com.google.android.material.textview.MaterialTextView
+
+          style="@style/textViewStyle"
+          android:text="@string/alpha2" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/alpha2"
+          style="@style/textViewStyle"
+          android:text="@{country.alpha2, default=@string/alpha2}" />
+      </LinearLayout>
+      <LinearLayout style="@style/layout_linear_horizontal">
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/alpha3" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/alpha3"
+          style="@style/textViewStyle"
+
+          android:text="@{country.alpha3, default=@string/alpha3}" />
+      </LinearLayout>
+
+      <LinearLayout style="@style/layout_linear_horizontal">
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/capital" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/capital"
+          style="@style/textViewStyle"
+          android:text="@{country.capital, default=@string/capital}" />
+      </LinearLayout>
+      <LinearLayout style="@style/layout_linear_horizontal">
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/population" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/population"
+          style="@style/textViewStyle"
+          android:text="@{AppUtils.formatNumber(country.population), default=@string/countryName}" />
+      </LinearLayout>
+
+      <LinearLayout style="@style/layout_linear_horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/area" />
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/area"
+          style="@style/textViewStyle"
+          android:text="@{AppUtils.formatNumber(country.area), default=@string/area}" />
+      </LinearLayout>
+      <LinearLayout style="@style/layout_linear_horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/continent" />
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/continent"
+          style="@style/textViewStyle"
+
+          android:text="@{country.continent, default=@string/continent}" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/currency_container"
+        style="@style/layout_linear_horizontal">
+        <com.google.android.material.textview.MaterialTextView
+          style="@style/textViewStyle"
+          android:text="@string/currency" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/currency"
+          style="@style/textViewStyle"
+          android:text="@{country.currency.name + ` ` + country.currency.symbol, default=@string/currency}" />
+      </LinearLayout>
+      <ImageView
+        android:id="@+id/flag"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:contentDescription="@string/demo_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cm" />
+
+    </LinearLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

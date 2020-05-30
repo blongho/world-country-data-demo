@@ -25,111 +25,161 @@
 package com.blongho.countrydata.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import androidx.core.content.ContextCompat;
+import com.blongho.countrydata.BuildConfig;
 import com.blongho.countrydata.R;
 import com.danielstone.materialaboutlibrary.ConvenienceBuilder;
 import com.danielstone.materialaboutlibrary.MaterialAboutFragment;
 import com.danielstone.materialaboutlibrary.items.MaterialAboutActionItem;
 import com.danielstone.materialaboutlibrary.items.MaterialAboutTitleItem;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutCard;
+import com.danielstone.materialaboutlibrary.model.MaterialAboutCard.Builder;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList;
 import com.danielstone.materialaboutlibrary.util.OpenSourceLicense;
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.mikepenz.iconics.IconicsDrawable;
 
 public class AboutFragment extends MaterialAboutFragment {
 
-  public static MaterialAboutList createMaterialAboutList(final Context c, final int theme) {
-    MaterialAboutCard.Builder appCardBuilder = new MaterialAboutCard.Builder();
+  private static final String TAG = "AboutFragment";
 
-    // Add items to card
+  private MaterialAboutList createMaterialAboutList(final Context c) {
+    Builder appCardBuilder = new Builder();
 
     appCardBuilder.addItem(new MaterialAboutTitleItem.Builder()
-        .text("Material About Library")
-        .desc("© 2020 Daniel Stone")
+        .text(getString(R.string.app_name))
+        .desc("© 2020 " + getString(R.string.author_name))
         .icon(R.mipmap.ic_launcher)
         .build());
 
     appCardBuilder.addItem(ConvenienceBuilder.createVersionActionItem(c,
         new IconicsDrawable(c)
             .sizeDp(18),
-        "Version",
-        false));
+        getString(R.string.app_version),
+        false)
+        .setIconRes(R.drawable.ic_info));
 
-    appCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-        .text("Changelog")
-        .icon(new IconicsDrawable(c)
-            .sizeDp(18))
-        .setOnClickAction(ConvenienceBuilder.createWebViewDialogOnClickAction(c, "Releases",
-            "https://github.com/daniel-stoneuk/material-about-library/releases", true, false))
-        .build());
+    appCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
+        new IconicsDrawable(c)
+            .sizeDp(18),
+        getString(R.string.app_source_code),
+        false,
+        Uri.parse(getString(R.string.app_source_code_url)))
+        .setIconRes(R.drawable.ic_source_code));
 
-    MaterialAboutCard.Builder authorCardBuilder = new MaterialAboutCard.Builder();
-    authorCardBuilder.title("Author");
-//        authorCardBuilder.titleColor(ContextCompat.getColor(c, R.color.colorAccent));
+    appCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
+        new IconicsDrawable(c)
+            .sizeDp(18),
+        getString(R.string.country_data_library),
+        false,
+        Uri.parse(getString(R.string.country_data_url)))
+        .setIconRes(R.drawable.ic_source_code)
+        .setSubText(getString(R.string.country_data_version)));
+
+    Builder authorCardBuilder = new Builder();
+    authorCardBuilder.title(getString(R.string.app_author));
+    authorCardBuilder.titleColor(ContextCompat.getColor(c, R.color.colorAccent));
 
     authorCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-        .text("Daniel Stone")
-        .subText("United Kingdom")
+        .text(R.string.author_name)
+        .subText(R.string.author_location)
         .icon(new IconicsDrawable(c)
             .sizeDp(18))
+        .setOnClickAction(
+            ConvenienceBuilder.createWebsiteOnClickAction(c,
+                Uri.parse(getString(R.string.author_website))))
         .build());
 
     authorCardBuilder.addItem(new MaterialAboutActionItem.Builder()
-        .text("Fork on GitHub")
-        .icon(new IconicsDrawable(c)
-            .sizeDp(18))
+        .text("LinkedIn")
+        .subText(getString(R.string.author_social_handle_linkedIn))
+        .icon(R.drawable.ic_linkedin)
         .setOnClickAction(ConvenienceBuilder
-            .createWebsiteOnClickAction(c, Uri.parse("https://github.com/daniel-stoneuk")))
+            .createWebsiteOnClickAction(c,
+                Uri.parse(getString(R.string.author_social_url_linkedIn))))
+        .build());
+    authorCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+        .text("Github")
+        .subText(getString(R.string.author_social_handle_github))
+        .icon(R.drawable.ic_github)
+        .setOnClickAction(ConvenienceBuilder
+            .createWebsiteOnClickAction(c, Uri.parse(getString(R.string.author_social_url_github))))
         .build());
 
-    MaterialAboutCard.Builder convenienceCardBuilder = new MaterialAboutCard.Builder();
+    authorCardBuilder.addItem(new MaterialAboutActionItem.Builder()
+        .text("Twitter")
+        .subText(getString(R.string.author_social_handle_twitter))
+        .icon(R.drawable.ic_twitter)
+        .setOnClickAction(ConvenienceBuilder
+            .createWebsiteOnClickAction(c,
+                Uri.parse(getString(R.string.author_social_url_twitter))))
+        .build());
 
-    convenienceCardBuilder.title("Convenience Builder");
+    authorCardBuilder.addItem(ConvenienceBuilder.createEmailItem(c,
+        ContextCompat.getDrawable(c, R.drawable.ic_email),
+        getString(R.string.app_send_author_email), false, getString(R.string.author_social_email),
+        ""));
 
-    convenienceCardBuilder.addItem(ConvenienceBuilder.createVersionActionItem(c,
+    Builder countryDataLibrary = new Builder();
+
+    countryDataLibrary.title(getString(R.string.country_data_library));
+
+    countryDataLibrary.addItem(ConvenienceBuilder.createVersionActionItem(c,
         new IconicsDrawable(c)
             .sizeDp(18),
-        "Version",
-        false));
+        getString(R.string.app_version),
+        false)
+        .setSubText(getString(R.string.country_data_version))
+    );
 
-    convenienceCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
+    countryDataLibrary.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
         new IconicsDrawable(c)
             .sizeDp(18),
-        "Visit Website",
-        true,
-        Uri.parse("http://danstone.uk")));
+        getString(R.string.visit_library),
+        false,
+        Uri.parse(getString(R.string.country_data_url))));
 
-    convenienceCardBuilder.addItem(ConvenienceBuilder.createRateActionItem(c,
+    Builder communicationBuilder = new Builder();
+    communicationBuilder.title(getString(R.string.communication));
+    communicationBuilder.addItem(ConvenienceBuilder.createRateActionItem(c,
         new IconicsDrawable(c)
             .sizeDp(18),
-        "Rate this app",
+        getString(R.string.rate_this_app),
         null
-    ));
+    )
+        .setIconRes(R.drawable.ic_rate));
 
-    convenienceCardBuilder.addItem(ConvenienceBuilder.createEmailItem(c,
+    communicationBuilder.addItem(new MaterialAboutActionItem.Builder()
+        .text(getString(R.string.share_with_friends))
+        .icon(R.drawable.ic_share)
+        .setOnClickAction(this::shareApp)
+        .build()
+    );
+
+    communicationBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
         new IconicsDrawable(c)
             .sizeDp(18),
-        "Send an email",
-        true,
-        "apps@danstone.uk",
-        "Question concerning MaterialAboutLibrary"));
+        getString(R.string.report_an_issue),
+        false,
+        Uri.parse(getString(R.string.app_issue_report_url)))
+        .setIconRes(R.drawable.ic_bug));
 
-    convenienceCardBuilder.addItem(ConvenienceBuilder.createPhoneItem(c,
+    Builder openSourceLibraries = new Builder();
+    openSourceLibraries.title(getString(R.string.oss_libraries));
+    openSourceLibraries.addItem(new MaterialAboutActionItem.Builder()
+        .text(R.string.oss_libraries)
+        .setOnClickAction(this::openSources)
+        .build());
+
+    MaterialAboutCard materialAboutLibraryLicenseCard = ConvenienceBuilder.createLicenseCard(c,
         new IconicsDrawable(c)
             .sizeDp(18),
-        "Call me",
-        true,
-        "+44 12 3456 7890"));
-
-    convenienceCardBuilder.addItem(ConvenienceBuilder.createMapItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        "Visit London",
-        null,
-        "London Eye"));
-
-    MaterialAboutCard.Builder otherCardBuilder = new MaterialAboutCard.Builder();
+        "material-about-library", "2016", "Daniel Stone",
+        OpenSourceLicense.APACHE_2);
+    Builder otherCardBuilder = new Builder();
     otherCardBuilder.title("Other");
 
     otherCardBuilder.cardColor(Color.parseColor("#c0cfff"));
@@ -145,7 +195,26 @@ public class AboutFragment extends MaterialAboutFragment {
     );
 
     return new MaterialAboutList(appCardBuilder.build(), authorCardBuilder.build(),
-        convenienceCardBuilder.build(), otherCardBuilder.build());
+        communicationBuilder.build(), openSourceLibraries.build());
+  }
+
+  private void openSources() {
+    startActivity(new Intent(requireContext(), OssLicensesMenuActivity.class));
+  }
+
+  private void shareApp() {
+    try {
+      Intent shareIntent = new Intent(Intent.ACTION_SEND);
+      shareIntent.setType("text/plain");
+      shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+      String shareString =
+          getString(R.string.share_with_friends_text);
+      shareString += BuildConfig.APPLICATION_ID;
+      shareIntent.putExtra(Intent.EXTRA_TEXT, shareString);
+      startActivity(Intent.createChooser(shareIntent, getString(R.string.share_with_title)));
+    } catch (Exception e) {
+      //e.toString();
+    }
   }
 
   public static MaterialAboutList createMaterialAboutLicenseList(final Context c) {
@@ -190,6 +259,8 @@ public class AboutFragment extends MaterialAboutFragment {
 
   @Override
   protected MaterialAboutList getMaterialAboutList(final Context activityContext) {
-    return createMaterialAboutLicenseList(activityContext);
+    return createMaterialAboutList(activityContext);
   }
+
+
 }
