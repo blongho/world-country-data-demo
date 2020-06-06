@@ -4,6 +4,10 @@ This repository intends to show how to use [World Country Data](https://github.c
 
 It uses the Model View ViewModel pattern and the Navigation Graph
 
+![Sample](img/animated_gif.gif)
+
+The sample app is at PlayStore
+ [![Sample at playstore](img/playstore.png)](https://play.google.com/store/apps/details?id=com.blongho.countrydata)
 
 ## Feedback
 - For issues related to this sample app, please use the [issues tracker](https://github.com/blongho/world-country-data-demo/issues)

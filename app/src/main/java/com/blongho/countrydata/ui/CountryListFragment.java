@@ -39,7 +39,6 @@ import androidx.appcompat.widget.SearchView.OnQueryTextListener;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.annimon.stream.Stream;
 import com.blongho.country_data.Country;
