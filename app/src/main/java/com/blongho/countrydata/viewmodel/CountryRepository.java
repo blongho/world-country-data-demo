@@ -28,11 +28,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.annimon.stream.Stream;
 import com.blongho.country_data.Country;
 import com.blongho.country_data.World;
+import com.blongho.countrydata.BuildConfig;
 import java.util.List;
 
 /**
@@ -46,7 +46,7 @@ import java.util.List;
 class CountryRepository {
 
   private static final String TAG = "CountryRepository";
-  final static MutableLiveData<List<Country>> countries = new MediatorLiveData<>();
+  final static MutableLiveData<List<Country>> countries = new MutableLiveData<>();
 
   CountryRepository(Context context) {
     World.init(context);
@@ -80,7 +80,9 @@ class CountryRepository {
             .sorted(((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName())))
             .distinct()
             .toList();
-    Log.i(TAG, "setCountries: Filtered countries " + filteredCountries.size());
+    if(BuildConfig.DEBUG) {
+      Log.i(TAG, "setCountries: Filtered countries " + filteredCountries.size());
+    }
     countries.postValue(filteredCountries); // Use post() as this method will be called in a
     // background thread
 
