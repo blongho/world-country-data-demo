@@ -81,7 +81,12 @@ public class CountryListFragment extends Fragment implements CountryAdapter.OnCo
 
   public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
     viewModel.getLiveData().observe(getViewLifecycleOwner(),
-        countries -> countryAdapter.setCountries(Stream.of(countries).distinct().toList()));
+        countries -> {
+          if (countries.size() > 0) {
+            binding.progressbar.setVisibility(View.GONE);
+          }
+          countryAdapter.setCountries(Stream.of(countries).distinct().toList());
+        });
 
   }
 

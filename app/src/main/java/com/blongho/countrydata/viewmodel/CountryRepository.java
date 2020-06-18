@@ -49,8 +49,7 @@ class CountryRepository {
   final static MutableLiveData<List<Country>> countries = new MutableLiveData<>();
 
   CountryRepository(Context context) {
-    World.init(context);
-
+    World.init(context.getApplicationContext());
     new LoadAsync().execute();
   }
 
@@ -60,8 +59,7 @@ class CountryRepository {
   }
 
   /**
-   * After 'playing' around, we noticed that some country details are not complete. We filter them
-   * here
+   * After 'playing' around, we noticed that some country details are not complete. We filter them here
    */
   private static void setCountries() {
     final List<Country> countryList = World.getAllCountries();
@@ -80,7 +78,7 @@ class CountryRepository {
             .sorted(((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName())))
             .distinct()
             .toList();
-    if(BuildConfig.DEBUG) {
+    if (BuildConfig.DEBUG) {
       Log.i(TAG, "setCountries: Filtered countries " + filteredCountries.size());
     }
     countries.postValue(filteredCountries); // Use post() as this method will be called in a
@@ -88,7 +86,10 @@ class CountryRepository {
 
   }
 
-  private static class LoadAsync extends AsyncTask<Void, Void, Void> {
+  final static class LoadAsync extends AsyncTask<Void, Void, Void> {
+
+    private LoadAsync() {
+    }
 
     @Override
     protected Void doInBackground(final Void... voids) {

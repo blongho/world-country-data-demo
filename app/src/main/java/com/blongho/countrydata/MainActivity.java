@@ -38,6 +38,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import com.blongho.country_data.World;
 import com.blongho.countrydata.viewmodel.CountryViewModel;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
           .setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary)); //status bar or
       // the time bar at the top
     }
+
+
+
   }
 
   @Override
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     //noinspection SimplifiableIfStatement
     if (id == R.id.action_settings) {
-      NavHostFragment.findNavController(getSupportFragmentManager().getPrimaryNavigationFragment())
+      NavHostFragment.findNavController(getSupportFragmentManager().getFragments().get(0))
           .navigate(R.id.action_global_navigation_about_fragment);
       return true;
     }
