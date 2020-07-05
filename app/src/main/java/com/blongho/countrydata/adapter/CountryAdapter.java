@@ -39,7 +39,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.annimon.stream.Stream;
 import com.blongho.country_data.Country;
 import com.blongho.countrydata.BR;
-import com.blongho.countrydata.BuildConfig;
 import com.blongho.countrydata.adapter.CountryAdapter.CountryViewHolder;
 import com.blongho.countrydata.databinding.CurrencyItemBinding;
 import java.util.ArrayList;
@@ -56,6 +55,7 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
 
   private static final String TAG = "CountryAdapter";
   private OnCountryClickListener listener;
+  private final static boolean debug = false;
   private Filter FILTER = new Filter() {
     @Override
     protected FilterResults performFiltering(final CharSequence constraint) {
@@ -65,7 +65,7 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
       } else {
         final String pattern = constraint.toString().toLowerCase().trim();
         List<Country> copy = getListCopy();
-     //Log.d(TAG, "performFiltering: List copy size is " + copy.size());
+        //Log.d(TAG, "performFiltering: List copy size is " + copy.size());
 
         // there can be an exception when parsing values, we catch them and proceed as if nothing
         // happened
@@ -99,7 +99,7 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
               Stream.of(copy).filter(c -> c.getContinent().toLowerCase().contains(pattern))
                   .toList());
         } catch (Exception ex) {
-          if (BuildConfig.DEBUG) {
+          if (debug) {
             Log.d(TAG, "performFiltering: Bad number format exception " + ex.getLocalizedMessage());
           }
         }
@@ -127,8 +127,9 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
   }
 
   /**
-   * Submit the Country list to the adapter. The submitList method calls notifyDataChange
-   * internally so one does not need to do that.
+   * Submit the Country list to the adapter. The submitList method calls notifyDataChange internally so one does not
+   * need to do that.
+   *
    * @param countries The list of countries to display
    */
   public void setCountries(final List<Country> countries) {
