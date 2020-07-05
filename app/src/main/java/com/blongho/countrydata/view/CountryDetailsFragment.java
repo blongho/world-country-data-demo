@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.blongho.countrydata.ui;
+package com.blongho.countrydata.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

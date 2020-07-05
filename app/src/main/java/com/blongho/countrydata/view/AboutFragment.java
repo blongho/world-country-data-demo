@@ -22,11 +22,10 @@
  * SOFTWARE.
  */
 
-package com.blongho.countrydata.ui;
+package com.blongho.countrydata.view;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import androidx.core.content.ContextCompat;
 import com.blongho.countrydata.BuildConfig;
@@ -35,10 +34,8 @@ import com.danielstone.materialaboutlibrary.ConvenienceBuilder;
 import com.danielstone.materialaboutlibrary.MaterialAboutFragment;
 import com.danielstone.materialaboutlibrary.items.MaterialAboutActionItem;
 import com.danielstone.materialaboutlibrary.items.MaterialAboutTitleItem;
-import com.danielstone.materialaboutlibrary.model.MaterialAboutCard;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutCard.Builder;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList;
-import com.danielstone.materialaboutlibrary.util.OpenSourceLicense;
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.mikepenz.iconics.IconicsDrawable;
 
@@ -77,7 +74,7 @@ public class AboutFragment extends MaterialAboutFragment {
         false,
         Uri.parse(getString(R.string.country_data_url)))
         .setIconRes(R.drawable.ic_source_code)
-        .setSubText(getString(R.string.country_data_version)));
+        .setSubText(BuildConfig.VERSION_NAME));
 
     Builder authorCardBuilder = new Builder();
     authorCardBuilder.title(getString(R.string.app_author));
