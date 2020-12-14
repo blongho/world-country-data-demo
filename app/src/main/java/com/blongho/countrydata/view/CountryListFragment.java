@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.blongho.countrydata.ui;
+package com.blongho.countrydata.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -115,8 +115,8 @@ public class CountryListFragment extends Fragment implements CountryAdapter.OnCo
     new MaterialAlertDialogBuilder(requireContext())
         .setTitle(getString(R.string.title_action_going_back))
         .setMessage(getString(R.string.confirm_message))
-        .setNegativeButton(android.R.string.no, (dialog, which) -> dialog.dismiss())
-        .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+        .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())
+        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
           requireActivity().finish();
         })
         .create()

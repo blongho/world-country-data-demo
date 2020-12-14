@@ -31,7 +31,7 @@
       type="com.blongho.country_data.Country" />
     <variable
       name="fragment"
-      type="com.blongho.countrydata.ui.CountryDetailsFragment" />
+      type="com.blongho.countrydata.view.CountryDetailsFragment" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -39,7 +39,7 @@
     android:id="@+id/navigation_country_details_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CountryDetailsFragment">
+    tools:context=".view.CountryDetailsFragment">
     <com.google.android.material.textview.MaterialTextView
       android:layout_width="match_parent"
       android:id="@+id/heading"

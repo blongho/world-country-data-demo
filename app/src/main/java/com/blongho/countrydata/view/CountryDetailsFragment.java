@@ -22,12 +22,13 @@
  * SOFTWARE.
  */
 
-package com.blongho.countrydata.ui;
+package com.blongho.countrydata.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -61,7 +62,8 @@ public class CountryDetailsFragment extends Fragment {
     countryViewModel.getSelectedCountry().observe(getViewLifecycleOwner(),
         country -> {
           binding.setCountry(country);
-          binding.countryDetailsView.flag.setImageResource(country.getFlagResource());
+          ((ImageView) binding.getRoot().findViewById(R.id.flag))
+              .setImageResource(country.getFlagResource());
         }
     );
 

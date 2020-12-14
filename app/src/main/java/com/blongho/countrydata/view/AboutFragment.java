@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.blongho.countrydata.ui;
+package com.blongho.countrydata.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -38,17 +38,26 @@ import com.danielstone.materialaboutlibrary.model.MaterialAboutCard.Builder;
 import com.danielstone.materialaboutlibrary.model.MaterialAboutList;
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.mikepenz.iconics.IconicsDrawable;
+import java.util.Calendar;
 
 public class AboutFragment extends MaterialAboutFragment {
 
   private static final String TAG = "AboutFragment";
+  private final static String before = "2020";
+  private final static String today = Calendar.getInstance().get(Calendar.YEAR) + "";
 
   private MaterialAboutList createMaterialAboutList(final Context c) {
     Builder appCardBuilder = new Builder();
+    String date = "© ";
+    if (Integer.parseInt(today) > Integer.parseInt(before)) {
+      date += (before + " - " + today);
+    } else {
+      date += before;
+    }
 
     appCardBuilder.addItem(new MaterialAboutTitleItem.Builder()
         .text(getString(R.string.app_name))
-        .desc("© 2020 " + getString(R.string.author_name))
+        .desc(date + " " + getString(R.string.author_name))
         .icon(R.mipmap.ic_launcher)
         .build());
 
@@ -74,7 +83,7 @@ public class AboutFragment extends MaterialAboutFragment {
         false,
         Uri.parse(getString(R.string.country_data_url)))
         .setIconRes(R.drawable.ic_source_code)
-        .setSubText(getString(R.string.country_data_version)));
+        .setSubText(com.blongho.country_data.BuildConfig.VERSION_NAME));
 
     Builder authorCardBuilder = new Builder();
     authorCardBuilder.title(getString(R.string.app_author));

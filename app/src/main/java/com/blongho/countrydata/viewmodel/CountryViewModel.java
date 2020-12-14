@@ -37,7 +37,7 @@ import java.util.List;
  */
 public class CountryViewModel extends AndroidViewModel {
 
-  private LiveData<List<Country>> liveData;
+  private final LiveData<List<Country>> liveData;
   private final MutableLiveData<Country> selectedCountry = new MutableLiveData<>();
 
   public CountryViewModel(@NonNull final Application application) {

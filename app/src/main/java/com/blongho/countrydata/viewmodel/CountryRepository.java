@@ -25,15 +25,14 @@
 package com.blongho.countrydata.viewmodel;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.annimon.stream.Stream;
 import com.blongho.country_data.Country;
 import com.blongho.country_data.World;
-import com.blongho.countrydata.BuildConfig;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 /**
  * @author Bernard Longho
@@ -46,11 +45,12 @@ import java.util.List;
 class CountryRepository {
 
   private static final String TAG = "CountryRepository";
-  final static MutableLiveData<List<Country>> countries = new MutableLiveData<>();
+  private final static MutableLiveData<List<Country>> countries = new MutableLiveData<>();
+  private final static boolean debug = false;
 
   CountryRepository(Context context) {
-    World.init(context.getApplicationContext());
-    new LoadAsync().execute();
+    World.init(context);
+    Executors.newCachedThreadPool().submit(CountryRepository::setCountries);
   }
 
 
@@ -59,7 +59,8 @@ class CountryRepository {
   }
 
   /**
-   * After 'playing' around, we noticed that some country details are not complete. We filter them here
+   * After 'playing' around, we noticed that some country details are not complete. We filter them
+   * here
    */
   private static void setCountries() {
     final List<Country> countryList = World.getAllCountries();
@@ -78,23 +79,11 @@ class CountryRepository {
             .sorted(((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName())))
             .distinct()
             .toList();
-    if (BuildConfig.DEBUG) {
+    if (debug) {
       Log.i(TAG, "setCountries: Filtered countries " + filteredCountries.size());
     }
     countries.postValue(filteredCountries); // Use post() as this method will be called in a
     // background thread
 
-  }
-
-  final static class LoadAsync extends AsyncTask<Void, Void, Void> {
-
-    private LoadAsync() {
-    }
-
-    @Override
-    protected Void doInBackground(final Void... voids) {
-      setCountries();
-      return null;
-    }
   }
 }
