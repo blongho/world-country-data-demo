@@ -12,7 +12,7 @@ Attribution is not mandatory but it will be appreciated.
 ## 2020-12-14
 ### version 1.0.1
 
-Initial release using World Country Data library version 1.4
+Release using World Country Data library version 1.5
 
 Setting `minifyEnabled true` in `build.gradle`
 
