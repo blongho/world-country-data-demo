@@ -25,7 +25,6 @@
 package com.blongho.countrydata.viewmodel;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
@@ -34,6 +33,7 @@ import com.annimon.stream.Stream;
 import com.blongho.country_data.Country;
 import com.blongho.country_data.World;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 /**
  * @author Bernard Longho
@@ -50,8 +50,7 @@ class CountryRepository {
 
   CountryRepository(Context context) {
     World.init(context);
-
-    new LoadAsync().execute();
+    Executors.newCachedThreadPool().submit(CountryRepository::setCountries);
   }
 
 
@@ -86,12 +85,5 @@ class CountryRepository {
 
   }
 
-  private static class LoadAsync extends AsyncTask<Void, Void, Void> {
 
-    @Override
-    protected Void doInBackground(final Void... voids) {
-      setCountries();
-      return null;
-    }
-  }
 }

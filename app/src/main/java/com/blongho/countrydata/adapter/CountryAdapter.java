@@ -56,7 +56,7 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
 
   private static final String TAG = "CountryAdapter";
   private OnCountryClickListener listener;
-  private Filter FILTER = new Filter() {
+  private final Filter FILTER = new Filter() {
     @Override
     protected FilterResults performFiltering(final CharSequence constraint) {
       List<Country> filteredList = new ArrayList<>();
