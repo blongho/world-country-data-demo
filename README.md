@@ -17,4 +17,4 @@ The sample app is at PlayStore
 
 
 ## Contact
-&copy; [2020 Bernard Longho](mailto:blongho02@gmail.com)
+&copy; [2020 - 2021 Bernard Longho](mailto:blongho02@gmail.com)

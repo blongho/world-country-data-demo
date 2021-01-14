@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Bernard Longho
+ * Copyright (c) 2020 - 2021 Bernard Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -53,11 +53,6 @@ class CountryRepository {
     Executors.newCachedThreadPool().submit(CountryRepository::setCountries);
   }
 
-
-  LiveData<List<Country>> getAllCountries() {
-    return countries;
-  }
-
   /**
    * After 'playing' around, we noticed that some country details are not complete. We filter them
    * here
@@ -85,5 +80,9 @@ class CountryRepository {
     countries.postValue(filteredCountries); // Use post() as this method will be called in a
     // background thread
 
+  }
+
+  LiveData<List<Country>> getAllCountries() {
+    return countries;
   }
 }

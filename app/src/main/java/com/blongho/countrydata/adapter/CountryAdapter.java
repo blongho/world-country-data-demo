@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Bernard Longho
+ * Copyright (c) 2020 - 2021 Bernard Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -54,8 +54,24 @@ import java.util.List;
 public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> implements Filterable {
 
   private static final String TAG = "CountryAdapter";
-  private OnCountryClickListener listener;
   private final static boolean debug = false;
+  private static final DiffUtil.ItemCallback<Country> diffCallback = new ItemCallback<Country>() {
+    @Override
+    public boolean areItemsTheSame(@NonNull final Country oldItem, @NonNull final Country newItem) {
+      return oldItem.getId() == newItem.getId();
+    }
+
+    @Override
+    public boolean areContentsTheSame(@NonNull final Country oldItem,
+        @NonNull final Country newItem) {
+      return oldItem.equals(newItem); // Country is equal if id, alpha2, alpha3 and name are same
+    }
+  };
+  private OnCountryClickListener listener;
+  /**
+   * A copy of the items that will be loaded to the adapter
+   */
+  private List<Country> listCopy = new ArrayList<>();
   private final Filter FILTER = new Filter() {
 
     @Override
@@ -117,19 +133,17 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
     }
   };
 
-  /**
-   * A copy of the items that will be loaded to the adapter
-   */
-  private List<Country> listCopy = new ArrayList<>();
-
+  public CountryAdapter() {
+    super(diffCallback);
+  }
 
   public List<Country> getListCopy() {
     return listCopy;
   }
 
   /**
-   * Submit the Country list to the adapter. The submitList method calls notifyDataChange internally so one does not
-   * need to do that.
+   * Submit the Country list to the adapter. The submitList method calls notifyDataChange internally
+   * so one does not need to do that.
    *
    * @param countries The list of countries to display
    */
@@ -137,23 +151,6 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
     submitList(countries);
     listCopy = new ArrayList<>(countries);
   }
-
-  public CountryAdapter() {
-    super(diffCallback);
-  }
-
-  private static final DiffUtil.ItemCallback<Country> diffCallback = new ItemCallback<Country>() {
-    @Override
-    public boolean areItemsTheSame(@NonNull final Country oldItem, @NonNull final Country newItem) {
-      return oldItem.getId() == newItem.getId();
-    }
-
-    @Override
-    public boolean areContentsTheSame(@NonNull final Country oldItem,
-        @NonNull final Country newItem) {
-      return oldItem.equals(newItem); // Country is equal if id, alpha2, alpha3 and name are same
-    }
-  };
 
   @NonNull
   @Override
@@ -191,6 +188,14 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
   }
 
 
+  /**
+   * Our listener to pass country object when it is clicked
+   */
+  public interface OnCountryClickListener {
+
+    void onCountryClick(final Country country);
+  }
+
   static class CountryViewHolder extends RecyclerView.ViewHolder {
 
     final CurrencyItemBinding itemBinding;
@@ -204,13 +209,5 @@ public class CountryAdapter extends ListAdapter<Country, CountryViewHolder> impl
       itemBinding.setVariable(BR.country, obj);
       itemBinding.executePendingBindings();
     }
-  }
-
-  /**
-   * Our listener to pass country object when it is clicked
-   */
-  public interface OnCountryClickListener {
-
-    void onCountryClick(final Country country);
   }
 }

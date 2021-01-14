@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 Bernard Longho
+  ~ Copyright (c) 2020 - 2021 Bernard Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,9 @@
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <data>
+
     <import type="com.blongho.countrydata.MainActivity.AppUtils" />
+
     <variable
       name="country"
       type="com.blongho.country_data.Country" />
@@ -46,10 +48,13 @@
       app:layout_constraintEnd_toStartOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent">
+
       <LinearLayout style="@style/layout_linear_horizontal">
+
         <com.google.android.material.textview.MaterialTextView
           style="@style/textViewStyle"
           android:text="@string/numericCode" />
+
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/numericCode"
           style="@style/textViewStyle"
@@ -57,28 +62,36 @@
       </LinearLayout>
 
       <LinearLayout style="@style/layout_linear_horizontal">
+
         <com.google.android.material.textview.MaterialTextView
           style="@style/textViewStyle"
           android:text="@string/countryName" />
+
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/countryName"
           style="@style/textViewStyle"
           android:text="@{country.name, default=@string/countryName}" />
       </LinearLayout>
+
       <LinearLayout style="@style/layout_linear_horizontal">
+
         <com.google.android.material.textview.MaterialTextView
 
           style="@style/textViewStyle"
           android:text="@string/alpha2" />
+
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/alpha2"
           style="@style/textViewStyle"
           android:text="@{country.alpha2, default=@string/alpha2}" />
       </LinearLayout>
+
       <LinearLayout style="@style/layout_linear_horizontal">
+
         <com.google.android.material.textview.MaterialTextView
           style="@style/textViewStyle"
           android:text="@string/alpha3" />
+
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/alpha3"
           style="@style/textViewStyle"
@@ -87,18 +100,23 @@
       </LinearLayout>
 
       <LinearLayout style="@style/layout_linear_horizontal">
+
         <com.google.android.material.textview.MaterialTextView
           style="@style/textViewStyle"
           android:text="@string/capital" />
+
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/capital"
           style="@style/textViewStyle"
           android:text="@{country.capital, default=@string/capital}" />
       </LinearLayout>
+
       <LinearLayout style="@style/layout_linear_horizontal">
+
         <com.google.android.material.textview.MaterialTextView
           style="@style/textViewStyle"
           android:text="@string/population" />
+
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/population"
           style="@style/textViewStyle"
@@ -116,6 +134,7 @@
           style="@style/textViewStyle"
           android:text="@{AppUtils.formatNumber(country.area) + ` sq. km`, default=@string/area}" />
       </LinearLayout>
+
       <LinearLayout style="@style/layout_linear_horizontal">
 
         <com.google.android.material.textview.MaterialTextView
@@ -132,14 +151,17 @@
       <LinearLayout
         android:id="@+id/currency_container"
         style="@style/layout_linear_horizontal">
+
         <com.google.android.material.textview.MaterialTextView
           style="@style/textViewStyle"
           android:text="@string/currency" />
+
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/currency"
           style="@style/textViewStyle"
           android:text="@{country.currency.name + ` ` + country.currency.symbol, default=@string/currency}" />
       </LinearLayout>
+
       <ImageView
         android:id="@+id/flag"
         android:layout_width="100dp"

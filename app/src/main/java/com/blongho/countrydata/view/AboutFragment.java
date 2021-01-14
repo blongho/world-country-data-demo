@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Bernard Longho
+ * Copyright (c) 2020 - 2021 Bernard Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import androidx.core.content.ContextCompat;
-import com.blongho.countrydata.BuildConfig;
+import com.blongho.country_data.World;
 import com.blongho.countrydata.R;
 import com.danielstone.materialaboutlibrary.ConvenienceBuilder;
 import com.danielstone.materialaboutlibrary.MaterialAboutFragment;
@@ -42,9 +42,13 @@ import java.util.Calendar;
 
 public class AboutFragment extends MaterialAboutFragment {
 
-  private static final String TAG = "AboutFragment";
   private final static String before = "2020";
   private final static String today = Calendar.getInstance().get(Calendar.YEAR) + "";
+
+  @Override
+  protected MaterialAboutList getMaterialAboutList(final Context activityContext) {
+    return createMaterialAboutList(activityContext);
+  }
 
   private MaterialAboutList createMaterialAboutList(final Context c) {
     Builder appCardBuilder = new Builder();
@@ -83,7 +87,7 @@ public class AboutFragment extends MaterialAboutFragment {
         false,
         Uri.parse(getString(R.string.country_data_url)))
         .setIconRes(R.drawable.ic_source_code)
-        .setSubText(com.blongho.country_data.BuildConfig.VERSION_NAME));
+        .setSubText(World.version()));
 
     Builder authorCardBuilder = new Builder();
     authorCardBuilder.title(getString(R.string.app_author));
@@ -199,10 +203,6 @@ public class AboutFragment extends MaterialAboutFragment {
         communicationBuilder.build(), info.build());
   }
 
-  private void openSources() {
-    startActivity(new Intent(requireContext(), OssLicensesMenuActivity.class));
-  }
-
   private void shareApp() {
     try {
       Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -210,7 +210,7 @@ public class AboutFragment extends MaterialAboutFragment {
       shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
       String shareString =
           getString(R.string.share_with_friends_text);
-      shareString += BuildConfig.APPLICATION_ID;
+      shareString += "com.blongho.countrydata";
       shareIntent.putExtra(Intent.EXTRA_TEXT, shareString);
       startActivity(Intent.createChooser(shareIntent, getString(R.string.share_with_title)));
     } catch (Exception e) {
@@ -218,10 +218,8 @@ public class AboutFragment extends MaterialAboutFragment {
     }
   }
 
-
-  @Override
-  protected MaterialAboutList getMaterialAboutList(final Context activityContext) {
-    return createMaterialAboutList(activityContext);
+  private void openSources() {
+    startActivity(new Intent(requireContext(), OssLicensesMenuActivity.class));
   }
 
 

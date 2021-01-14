@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 Bernard Longho
+  ~ Copyright (c) 2020 - 2021 Bernard Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -24,61 +23,69 @@
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ndroid="http://schemas.android.com/tools">
-<data>
-    <variable
-        name="country"
-        type="com.blongho.country_data.Country" />
+  xmlns:ndroid="http://schemas.android.com/tools">
 
-</data>
-    <GridLayout
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/spacing_72dp"
-      android:layout_margin="@dimen/spacing_4dp"
-      android:elevation="2dp"
-      android:columnCount="3"
-      android:padding="@dimen/spacing_4dp"
-      android:background="#fafafa"
-      android:rowCount="2">
-        <ImageView
-          android:id="@+id/currency_flag"
-          android:layout_width="@dimen/item_view_height"
-          android:layout_height="@dimen/item_view_height"
-          android:layout_row="0"
-          android:layout_rowSpan="2"
-          android:layout_column="0"
-          android:contentDescription="@string/currency_country"
-          android:src="@drawable/cm"
-          ndroid:scaleType="centerCrop" />
-        <com.google.android.material.textview.MaterialTextView
-          android:id="@+id/country_name"
-          style="@style/textViewLeft"
-          android:layout_row="0"
-          android:layout_column="1"
-          android:layout_marginTop="@dimen/default_margin"
-          android:text="@{country.name, default=@string/country_name}" />
-        <com.google.android.material.textview.MaterialTextView
-          android:id="@+id/country_capital"
-          style="@style/textViewLeft"
-          android:layout_width="wrap_content"
-          android:layout_column="1"
-          android:text="@{country.capital, default=@string/country_capital}" />
-        <com.google.android.material.textview.MaterialTextView
-          android:id="@+id/currency_name"
-          style="@style/textViewRight"
-          android:layout_row="0"
-          android:layout_column="2"
-          android:layout_gravity="end"
-          android:layout_marginTop="@dimen/default_margin"
-          android:text="@{country.currency.name, default=@string/currency_name}" />
-        <com.google.android.material.textview.MaterialTextView
-          android:id="@+id/currency_symbol"
-          style="@style/textViewRight"
-          android:layout_row="1"
-          android:layout_column="2"
-          android:layout_gravity="end"
-          android:text="@{country.currency.symbol, default=@string/currency_symbol}"
-          android:textAlignment="textEnd"
-          android:textSize="14sp" />
-    </GridLayout>
+  <data>
+
+    <variable
+      name="country"
+      type="com.blongho.country_data.Country" />
+
+  </data>
+
+  <GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/spacing_72dp"
+    android:layout_margin="@dimen/spacing_4dp"
+    android:background="#fafafa"
+    android:columnCount="3"
+    android:elevation="2dp"
+    android:padding="@dimen/spacing_4dp"
+    android:rowCount="2">
+
+    <ImageView
+      android:id="@+id/currency_flag"
+      android:layout_width="@dimen/item_view_height"
+      android:layout_height="@dimen/item_view_height"
+      android:layout_row="0"
+      android:layout_rowSpan="2"
+      android:layout_column="0"
+      android:contentDescription="@string/currency_country"
+      android:src="@drawable/cm"
+      ndroid:scaleType="centerCrop" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/country_name"
+      style="@style/textViewLeft"
+      android:layout_row="0"
+      android:layout_column="1"
+      android:layout_marginTop="@dimen/default_margin"
+      android:text="@{country.name, default=@string/country_name}" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/country_capital"
+      style="@style/textViewLeft"
+      android:layout_width="wrap_content"
+      android:layout_column="1"
+      android:text="@{country.capital, default=@string/country_capital}" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/currency_name"
+      style="@style/textViewRight"
+      android:layout_row="0"
+      android:layout_column="2"
+      android:layout_gravity="end"
+      android:layout_marginTop="@dimen/default_margin"
+      android:text="@{country.currency.name, default=@string/currency_name}" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/currency_symbol"
+      style="@style/textViewRight"
+      android:layout_row="1"
+      android:layout_column="2"
+      android:layout_gravity="end"
+      android:text="@{country.currency.symbol, default=@string/currency_symbol}"
+      android:textAlignment="textEnd"
+      android:textSize="14sp" />
+  </GridLayout>
 </layout>

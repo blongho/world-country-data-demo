@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Bernard Longho
+ * Copyright (c) 2020 - 2021 Bernard Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,9 +24,9 @@
 
 package com.blongho.countrydata;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -34,8 +34,9 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
-    }
+
+  @Test
+  public void addition_isCorrect() {
+    assertEquals(4, 2 + 2);
+  }
 }

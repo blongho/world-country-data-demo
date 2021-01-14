@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Bernard Longho
+ * Copyright (c) 2020 - 2021 Bernard Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.blongho.country_data.World;
 import com.blongho.countrydata.viewmodel.CountryViewModel;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -47,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
   private AppBarConfiguration appBarConfiguration;
   private NavController navController;
+
+  private static Locale getLocale() {
+    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+      return Resources.getSystem().getConfiguration().getLocales().get(0);
+    } else {
+      return Resources.getSystem().getConfiguration().locale;
+    }
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
           .setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary)); //status bar or
       // the time bar at the top
     }
-
 
 
   }
@@ -129,14 +135,6 @@ public class MainActivity extends AppCompatActivity {
       numberFormat.setMaximumFractionDigits(2);
       numberFormat.setGroupingUsed(true);
       return numberFormat.format(number);
-    }
-  }
-
-  private static Locale getLocale() {
-    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-      return Resources.getSystem().getConfiguration().getLocales().get(0);
-    } else {
-      return Resources.getSystem().getConfiguration().locale;
     }
   }
 
