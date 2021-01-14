@@ -1,6 +1,6 @@
 # Release notes
 ## 2021-01-14
-### Release version 1.0.0
+### Release version 1.1.4
 
 Updates World Country Data library version 1.5.1
 ---
