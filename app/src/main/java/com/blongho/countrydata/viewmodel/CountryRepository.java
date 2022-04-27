@@ -33,6 +33,7 @@ import com.blongho.country_data.Country;
 import com.blongho.country_data.World;
 import java.util.List;
 import java.util.concurrent.Executors;
+import javax.security.auth.login.LoginException;
 
 /**
  * @author Bernard Longho
@@ -59,6 +60,10 @@ class CountryRepository {
    */
   private static void setCountries() {
     final List<Country> countryList = World.getAllCountries();
+      Stream.of(countryList).forEach(country -> {
+        Log.i(TAG, "setCountries: "+ country.getName());
+      });
+    Log.i(TAG, "setCountries: Number of countries is "+ countryList.size());
 
     List<Country> filteredCountries =
         Stream.of(countryList)
