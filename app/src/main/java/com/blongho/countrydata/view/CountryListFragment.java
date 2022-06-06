@@ -24,6 +24,7 @@
 
 package com.blongho.countrydata.view;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -58,6 +59,7 @@ public class CountryListFragment extends Fragment implements CountryAdapter.OnCo
   private CountryViewModel viewModel;
   private CountryAdapter countryAdapter;
   private FragmentCountryListBinding binding;
+  private ProgressDialog progressDialog;
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,6 +72,9 @@ public class CountryListFragment extends Fragment implements CountryAdapter.OnCo
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     binding = FragmentCountryListBinding.inflate(inflater, container, false);
+    progressDialog = new ProgressDialog(requireContext());
+    progressDialog.setMessage("Initializing the app...");
+    progressDialog.show();
     final RecyclerView recyclerView = (RecyclerView) binding.recyclerView;
     recyclerView.setHasFixedSize(true);
     countryAdapter = new CountryAdapter();
@@ -82,9 +87,7 @@ public class CountryListFragment extends Fragment implements CountryAdapter.OnCo
   public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
     viewModel.getLiveData().observe(getViewLifecycleOwner(),
         countries -> {
-          if (countries.size() > 0) {
-            binding.progressbar.setVisibility(View.GONE);
-          }
+          progressDialog.dismiss();
           countryAdapter.setCountries(Stream.of(countries).distinct().toList());
         });
 

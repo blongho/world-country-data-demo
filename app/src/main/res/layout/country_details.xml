@@ -159,8 +159,7 @@
           <com.google.android.material.textview.MaterialTextView
             android:id="@+id/currency"
             style="@style/textViewStyle"
-            android:text="@{country.currency.name +
-            (country.currency.symbol == null?``:`, `+country.currency.symbol) , default=@string/currency}" />
+            android:text="@{country.currency.name +(country.currency.symbol == null?``:`, `+country.currency.symbol) , default=@string/currency}" />
 
       </LinearLayout>
 
