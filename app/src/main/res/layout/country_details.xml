@@ -28,7 +28,7 @@
   <data>
 
     <import type="com.blongho.countrydata.MainActivity.AppUtils" />
-
+    <import type="android.view.View"/>
     <variable
       name="country"
       type="com.blongho.country_data.Country" />
@@ -156,10 +156,12 @@
           style="@style/textViewStyle"
           android:text="@string/currency" />
 
-        <com.google.android.material.textview.MaterialTextView
-          android:id="@+id/currency"
-          style="@style/textViewStyle"
-          android:text="@{country.currency.name + ` ` + country.currency.symbol, default=@string/currency}" />
+          <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/currency"
+            style="@style/textViewStyle"
+            android:text="@{country.currency.name +
+            (country.currency.symbol == null?``:`, `+country.currency.symbol) , default=@string/currency}" />
+
       </LinearLayout>
 
       <ImageView

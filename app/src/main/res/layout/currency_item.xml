@@ -31,6 +31,7 @@
       name="country"
       type="com.blongho.country_data.Country" />
 
+    <import type="android.view.View"/>
   </data>
 
   <GridLayout
@@ -82,6 +83,7 @@
       android:id="@+id/currency_symbol"
       style="@style/textViewRight"
       android:layout_row="1"
+      android:visibility="@{country.currency.symbol == null? View.GONE: View.VISIBLE}"
       android:layout_column="2"
       android:layout_gravity="end"
       android:text="@{country.currency.symbol, default=@string/currency_symbol}"

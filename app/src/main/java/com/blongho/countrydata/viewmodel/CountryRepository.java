@@ -72,10 +72,10 @@ class CountryRepository {
             .filterNot(
                 country -> country.getAlpha2().equalsIgnoreCase("sj"))// this has weired currency
             .filterNot(country -> country.getAlpha2().equalsIgnoreCase("xx")) // world
-            .filterNot(country -> country.getCurrency() == null)
+            /*.filterNot(country -> country.getCurrency() == null)
             .filterNot(country -> country.getCurrency().getCode() == null)
             .filterNot(country -> country.getCurrency().getSymbol() == null)
-            .filterNot(country -> country.getCapital() == null || country.getCapital().isEmpty())
+            .filterNot(country -> country.getCapital() == null || country.getCapital().isEmpty())*/
             .sorted(((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName())))
             .distinct()
             .toList();
