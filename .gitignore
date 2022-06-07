@@ -51,4 +51,7 @@ error_log
 .idea
 
 publish*
-.settings
+.settings 
+app/src/main/res/mipmap*/ic_author*
+app/src/main/res/values/ic_author*
+app/src/main/ic_author-playstore.png

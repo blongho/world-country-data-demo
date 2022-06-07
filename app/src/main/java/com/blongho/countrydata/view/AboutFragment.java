@@ -66,20 +66,14 @@ public class AboutFragment extends MaterialAboutFragment {
         .icon(R.mipmap.ic_launcher)
         .build());
 
-    appCardBuilder.addItem(ConvenienceBuilder.createVersionActionItem(c,
-            new IconicsDrawable(c)
-                .sizeDp(18),
-            World.version(),
-            false)
-        .setIconRes(R.drawable.ic_info));
-
     appCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
             new IconicsDrawable(c)
                 .sizeDp(18),
-            BuildConfig.VERSION_NAME,
+            getString(R.string.app_source_code),
             false,
             Uri.parse(getString(R.string.app_source_code_url)))
-        .setIconRes(R.drawable.ic_source_code));
+        .setIconRes(R.drawable.ic_source_code)
+        .setSubText(BuildConfig.VERSION_NAME));
 
     appCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
             new IconicsDrawable(c)
@@ -97,8 +91,7 @@ public class AboutFragment extends MaterialAboutFragment {
     authorCardBuilder.addItem(new MaterialAboutActionItem.Builder()
         .text(R.string.author_name)
         .subText(R.string.author_location)
-        .icon(new IconicsDrawable(c)
-            .sizeDp(18))
+        .icon(R.mipmap.ic_author)
         .setOnClickAction(
             ConvenienceBuilder.createWebsiteOnClickAction(c,
                 Uri.parse(getString(R.string.author_website))))

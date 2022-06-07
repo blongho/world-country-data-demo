@@ -80,17 +80,17 @@
   <string name="author_social_url_github">https://github.com/blongho</string>
   <string name="author_social_url_linkedIn">https://www.linkedin.com/in/blongho</string>
   <string name="app_author">Author</string>
-  <string name="app_version">Version</string>
+  <string name="app_version">App Version</string>
   <string name="app_send_author_email">Send me an email</string>
   <string name="author_social_handle_twitter">@blongho</string>
   <string name="author_social_handle_github">@blongho</string>
   <string name="author_social_handle_linkedIn">@blongho</string>
   <!--END  AUTHOR DATA-->
   <string name="country_data_url">https://github.com/blongho/worldCountryData</string>
-  <string name="country_data_version">v1.5.3</string>
+  <string name="country_data_version">Country data library version: %</string>
   <string name="app_source_code_url">https://github.com/blongho/world-country-data-demo</string>
   <string name="communication">Communication</string>
-  <string name="country_data_library">Country Data Library</string>
+  <string name="country_data_library">Country Data Library Source Code</string>
   <string name="app_source_code">App source code</string>
   <string name="visit_library">Visit Library</string>
   <string name="rate_this_app">Rate this app</string>
@@ -99,7 +99,7 @@
   <string name="app_issue_report_url">https://github.com/blongho/world-country-data-demo/issues</string>
   <string name="share_with_friends_text">I like to share with you Country Data demo app \n https://play.google.com/store/apps/details?id=</string>
   <string name="share_with_title">Share this app using…</string>
-  <string name="oss_libraries">"Open source libraries "</string>
+  <string name="oss_libraries">Open source libraries</string>
   <string name="app_tos_url">https://blongho.github.io/world-country-data-demo/info/tos.html</string>
   <string name="app_privacy_url">https://blongho.github.io/world-country-data-demo/info/privacy.html</string>
   <string name="info">Info</string>
