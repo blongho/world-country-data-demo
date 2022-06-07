@@ -1,7 +1,7 @@
 <!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 - 2021 Bernard Longho
+  ~ Copyright (c) 2020 - 2022 Bernard Che Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -24,12 +24,12 @@
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  android:width="24dp"
-  android:height="24dp"
   android:autoMirrored="true"
+  android:height="24dp"
   android:tint="?attr/colorOnSurface"
-  android:viewportWidth="24"
   android:viewportHeight="24"
+  android:viewportWidth="24"
+  android:width="24dp"
   tools:targetApi="kitkat">
   <path
     android:fillColor="@android:color/background_dark"

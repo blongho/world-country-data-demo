@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 - 2021 Bernard Longho
+ * Copyright (c) 2020 - 2022 Bernard Che Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -140,6 +140,7 @@ public class CountryListFragment extends Fragment implements CountryAdapter.OnCo
   @Override
   public void onCountryClick(final Country country) {
     viewModel.setSelectedCountry(country);
+    //Snackbar.make(binding.getRoot(), AppUtils.listToString(country.getLanguages()), Snackbar.LENGTH_SHORT).show();
     Navigation.findNavController(requireView())
         .navigate(
             R.id.action_navigation_country_list_fragment_to_navigation_country_details_fragment);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 - 2021 Bernard Longho
+  ~ Copyright (c) 2020 - 2022 Bernard Che Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -25,15 +25,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <data>
-
-    <import type="com.blongho.countrydata.MainActivity.AppUtils" />
-    <import type="android.view.View"/>
-    <variable
-      name="country"
-      type="com.blongho.country_data.Country" />
-  </data>
-
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -48,6 +39,18 @@
       app:layout_constraintEnd_toStartOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent">
+
+      <ImageView
+        android:id="@+id/flag"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:layout_gravity="center"
+        android:contentDescription="@string/demo_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cm" />
 
       <LinearLayout style="@style/layout_linear_horizontal">
 
@@ -147,7 +150,6 @@
 
           android:text="@{country.continent, default=@string/continent}" />
       </LinearLayout>
-
       <LinearLayout
         android:id="@+id/currency_container"
         style="@style/layout_linear_horizontal">
@@ -156,25 +158,37 @@
           style="@style/textViewStyle"
           android:text="@string/currency" />
 
-          <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/currency"
-            style="@style/textViewStyle"
-            android:text="@{country.currency.name +(country.currency.symbol == null?``:`, `+country.currency.symbol) , default=@string/currency}" />
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/currency"
+          style="@style/textViewStyle"
+          android:text="@{country.currency.name +(country.currency.symbol == null?``:`, `+country.currency.symbol) , default=@string/currency}" />
+
+      </LinearLayout>
+      <LinearLayout
+        android:id="@+id/languages"
+        style="@style/layout_linear_horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/country_language_text"
+          style="@style/textViewStyle"
+          android:text="@string/languages" />
+
+        <com.google.android.material.textview.MaterialTextView
+          android:id="@+id/country_languages"
+          style="@style/textViewStyle"
+          android:text="@{AppUtils.listToString(country.languages)}" />
 
       </LinearLayout>
 
-      <ImageView
-        android:id="@+id/flag"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginBottom="@dimen/default_margin"
-        android:contentDescription="@string/demo_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cm" />
-
     </LinearLayout>
   </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <data>
+
+    <import type="com.blongho.countrydata.utils.AppUtils" />
+    <import type="android.view.View" />
+    <variable
+      name="country"
+      type="com.blongho.country_data.Country" />
+  </data>
 </layout>

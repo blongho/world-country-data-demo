@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?><!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 - 2021 Bernard Longho
+  ~ Copyright (c) 2020 - 2022 Bernard Che Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -105,4 +105,5 @@
   <string name="info">Info</string>
   <string name="privacy_policy">Privacy policy</string>
   <string name="terms_of_service">Terms of Service</string>
+  <string name="languages">Languages</string>
 </resources>

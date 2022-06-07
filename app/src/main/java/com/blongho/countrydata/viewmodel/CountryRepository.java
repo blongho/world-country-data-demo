@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 - 2021 Bernard Longho
+ * Copyright (c) 2020 - 2022 Bernard Che Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,6 @@ import com.blongho.country_data.Country;
 import com.blongho.country_data.World;
 import java.util.List;
 import java.util.concurrent.Executors;
-import javax.security.auth.login.LoginException;
 
 /**
  * @author Bernard Longho
@@ -60,10 +59,12 @@ class CountryRepository {
    */
   private static void setCountries() {
     final List<Country> countryList = World.getAllCountries();
+    if (debug) {
       Stream.of(countryList).forEach(country -> {
-        Log.i(TAG, "setCountries: "+ country.getName());
+        Log.i(TAG, "setCountries: " + country.getName());
       });
-    Log.i(TAG, "setCountries: Number of countries is "+ countryList.size());
+      Log.i(TAG, "setCountries: Number of countries is " + countryList.size());
+    }
 
     List<Country> filteredCountries =
         Stream.of(countryList)

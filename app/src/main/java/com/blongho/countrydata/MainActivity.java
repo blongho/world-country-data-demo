@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 - 2021 Bernard Longho
+ * Copyright (c) 2020 - 2022 Bernard Che Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,18 +32,16 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.blongho.countrydata.viewmodel.CountryViewModel;
-import java.text.NumberFormat;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
+  private static final String TAG = "MainActivity";
   private AppBarConfiguration appBarConfiguration;
   private NavController navController;
 
@@ -62,11 +60,6 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-// Instantiate the view model here
-// This initializes World and starts the filtering in the background
-// See CountryViewModel.class
-    new ViewModelProvider(MainActivity.this)
-        .get(CountryViewModel.class);
     appBarConfiguration = new AppBarConfiguration.Builder(
         R.id.navigation_country_list_fragment)
         .build();
@@ -120,22 +113,5 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
-  public static final class AppUtils {
-
-    public static String formatNumber(final double number) {
-      NumberFormat numberFormat = NumberFormat.getNumberInstance();
-      numberFormat.setMaximumFractionDigits(2);
-      numberFormat.setGroupingUsed(true);
-      return numberFormat.format(number);
-    }
-
-    public static String formatNumber(final long number) {
-
-      NumberFormat numberFormat = NumberFormat.getNumberInstance(getLocale());
-      numberFormat.setMaximumFractionDigits(2);
-      numberFormat.setGroupingUsed(true);
-      return numberFormat.format(number);
-    }
-  }
 
 }

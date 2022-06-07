@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 - 2021 Bernard Longho
+  ~ Copyright (c) 2020 - 2022 Bernard Che Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -28,20 +28,13 @@
   android:id="@+id/nav_graph"
   app:startDestination="@id/navigation_country_list_fragment">
 
-  <fragment
-    android:id="@+id/navigation_country_list_fragment"
-    android:name="com.blongho.countrydata.view.CountryListFragment"
-    android:label="@string/first_fragment_label"
-    tools:layout="@layout/fragment_country_list">
-
-    <action
-      android:id="@+id/action_navigation_country_list_fragment_to_navigation_country_details_fragment"
-      app:destination="@id/navigation_country_details_fragment" />
-  </fragment>
+  <action
+    android:id="@+id/action_global_navigation_about_fragment"
+    app:destination="@id/navigation_about_fragment" />
   <fragment
     android:id="@+id/navigation_country_details_fragment"
-    android:name="com.blongho.countrydata.view.CountryDetailsFragment"
     android:label="@string/second_fragment_label"
+    android:name="com.blongho.countrydata.view.CountryDetailsFragment"
     tools:layout="@layout/fragment_country_details">
 
 
@@ -51,9 +44,16 @@
   </fragment>
   <fragment
     android:id="@+id/navigation_about_fragment"
-    android:name="com.blongho.countrydata.view.AboutFragment"
-    android:label="AboutFragment" />
-  <action
-    android:id="@+id/action_global_navigation_about_fragment"
-    app:destination="@id/navigation_about_fragment" />
+    android:label="AboutFragment"
+    android:name="com.blongho.countrydata.view.AboutFragment" />
+  <fragment
+    android:id="@+id/navigation_country_list_fragment"
+    android:label="@string/first_fragment_label"
+    android:name="com.blongho.countrydata.view.CountryListFragment"
+    tools:layout="@layout/fragment_country_list">
+
+    <action
+      android:id="@+id/action_navigation_country_list_fragment_to_navigation_country_details_fragment"
+      app:destination="@id/navigation_country_details_fragment" />
+  </fragment>
 </navigation>

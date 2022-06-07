@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 - 2021 Bernard Longho
+ * Copyright (c) 2020 - 2022 Bernard Che Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,9 +38,11 @@ import androidx.navigation.Navigation;
 import com.blongho.countrydata.R;
 import com.blongho.countrydata.databinding.FragmentCountryDetailsBinding;
 import com.blongho.countrydata.viewmodel.CountryViewModel;
+import java.util.List;
 
 public class CountryDetailsFragment extends Fragment {
 
+  private static final String TAG = "CountryDetailsFragment";
   private FragmentCountryDetailsBinding binding;
 
   @Override
@@ -62,6 +64,13 @@ public class CountryDetailsFragment extends Fragment {
     countryViewModel.getSelectedCountry().observe(getViewLifecycleOwner(),
         country -> {
           binding.setCountry(country);
+          final List<String> languages = country.getLanguages();
+          //Log.d(TAG, "onViewCreated: " + languages.size());
+          if (languages.size() == 0 || languages.get(0).isEmpty()) {
+            binding.countryDetailsView.languages.setVisibility(View.GONE);
+            binding.countryDetailsView.countryLanguageText.setVisibility(View.GONE);
+            //Log.d(TAG, "onViewCreated: empty languages");
+          }
           ((ImageView) binding.getRoot().findViewById(R.id.flag))
               .setImageResource(country.getFlagResource());
         }

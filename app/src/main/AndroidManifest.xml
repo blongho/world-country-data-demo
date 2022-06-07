@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 - 2021 Bernard Longho
+  ~ Copyright (c) 2020 - 2022 Bernard Che Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -26,11 +26,6 @@
   xmlns:dist="http://schemas.android.com/apk/distribution"
   package="com.blongho.countrydata">
 
-  <dist:module dist:instant="true" />
-
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
   <application
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
@@ -38,9 +33,9 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
     <activity
+      android:exported="true"
       android:name="com.blongho.countrydata.MainActivity"
-      android:theme="@style/AppTheme.NoActionBar"
-      android:exported="true">
+      android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -48,5 +43,10 @@
       </intent-filter>
     </activity>
   </application>
+
+  <dist:module dist:instant="true" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+  <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

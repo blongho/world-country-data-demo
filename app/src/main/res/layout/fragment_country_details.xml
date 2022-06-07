@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ MIT License
   ~
-  ~ Copyright (c) 2020 - 2021 Bernard Longho
+  ~ Copyright (c) 2020 - 2022 Bernard Che Longho
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy
   ~ of this software and associated documentation files (the "Software"), to deal
@@ -24,17 +24,6 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:bind="http://schemas.android.com/tools">
-
-  <data>
-
-    <variable
-      name="country"
-      type="com.blongho.country_data.Country" />
-
-    <variable
-      name="fragment"
-      type="com.blongho.countrydata.view.CountryDetailsFragment" />
-  </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -63,4 +52,15 @@
       bind:country="@{country}" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <data>
+
+    <variable
+      name="country"
+      type="com.blongho.country_data.Country" />
+
+    <variable
+      name="fragment"
+      type="com.blongho.countrydata.view.CountryDetailsFragment" />
+  </data>
 </layout>

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 - 2021 Bernard Longho
+ * Copyright (c) 2020 - 2022 Bernard Che Longho
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -66,26 +66,26 @@ public class AboutFragment extends MaterialAboutFragment {
         .build());
 
     appCardBuilder.addItem(ConvenienceBuilder.createVersionActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.app_version),
-        false)
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.app_version),
+            false)
         .setIconRes(R.drawable.ic_info));
 
     appCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.app_source_code),
-        false,
-        Uri.parse(getString(R.string.app_source_code_url)))
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.app_source_code),
+            false,
+            Uri.parse(getString(R.string.app_source_code_url)))
         .setIconRes(R.drawable.ic_source_code));
 
     appCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.country_data_library),
-        false,
-        Uri.parse(getString(R.string.country_data_url)))
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.country_data_library),
+            false,
+            Uri.parse(getString(R.string.country_data_url)))
         .setIconRes(R.drawable.ic_source_code)
         .setSubText(World.version()));
 
@@ -138,10 +138,10 @@ public class AboutFragment extends MaterialAboutFragment {
     countryDataLibrary.title(getString(R.string.country_data_library));
 
     countryDataLibrary.addItem(ConvenienceBuilder.createVersionActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.app_version),
-        false)
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.app_version),
+            false)
         .setSubText(getString(R.string.country_data_version))
     );
 
@@ -155,11 +155,11 @@ public class AboutFragment extends MaterialAboutFragment {
     Builder communicationBuilder = new Builder();
     communicationBuilder.title(getString(R.string.communication));
     communicationBuilder.addItem(ConvenienceBuilder.createRateActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.rate_this_app),
-        null
-    )
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.rate_this_app),
+            null
+        )
         .setIconRes(R.drawable.ic_rate));
 
     communicationBuilder.addItem(new MaterialAboutActionItem.Builder()
@@ -170,29 +170,29 @@ public class AboutFragment extends MaterialAboutFragment {
     );
 
     communicationBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.report_an_issue),
-        false,
-        Uri.parse(getString(R.string.app_issue_report_url)))
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.report_an_issue),
+            false,
+            Uri.parse(getString(R.string.app_issue_report_url)))
         .setIconRes(R.drawable.ic_bug));
 
     Builder info = new Builder();
     info.title(getString(R.string.info));
     info.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.privacy_policy),
-        false,
-        Uri.parse(getString(R.string.app_privacy_url)))
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.privacy_policy),
+            false,
+            Uri.parse(getString(R.string.app_privacy_url)))
         .setIconRes(R.drawable.ic_privacy));
 
     info.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
-        new IconicsDrawable(c)
-            .sizeDp(18),
-        getString(R.string.terms_of_service),
-        false,
-        Uri.parse(getString(R.string.app_tos_url)))
+            new IconicsDrawable(c)
+                .sizeDp(18),
+            getString(R.string.terms_of_service),
+            false,
+            Uri.parse(getString(R.string.app_tos_url)))
         .setIconRes(R.drawable.ic_info));
 
     info.addItem(new MaterialAboutActionItem.Builder()
