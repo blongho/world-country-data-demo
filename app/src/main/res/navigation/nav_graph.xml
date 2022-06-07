@@ -44,7 +44,7 @@
   </fragment>
   <fragment
     android:id="@+id/navigation_about_fragment"
-    android:label="AboutFragment"
+    android:label="@string/about_app"
     android:name="com.blongho.countrydata.view.AboutFragment" />
   <fragment
     android:id="@+id/navigation_country_list_fragment"

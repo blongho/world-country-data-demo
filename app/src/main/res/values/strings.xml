@@ -87,7 +87,7 @@
   <string name="author_social_handle_linkedIn">@blongho</string>
   <!--END  AUTHOR DATA-->
   <string name="country_data_url">https://github.com/blongho/worldCountryData</string>
-  <string name="country_data_version">v1.5</string>
+  <string name="country_data_version">v1.5.3</string>
   <string name="app_source_code_url">https://github.com/blongho/world-country-data-demo</string>
   <string name="communication">Communication</string>
   <string name="country_data_library">Country Data Library</string>
@@ -106,4 +106,5 @@
   <string name="privacy_policy">Privacy policy</string>
   <string name="terms_of_service">Terms of Service</string>
   <string name="languages">Languages</string>
+  <string name="about_app">About this app</string>
 </resources>

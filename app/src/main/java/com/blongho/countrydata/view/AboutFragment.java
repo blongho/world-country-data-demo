@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.net.Uri;
 import androidx.core.content.ContextCompat;
 import com.blongho.country_data.World;
+import com.blongho.countrydata.BuildConfig;
 import com.blongho.countrydata.R;
 import com.danielstone.materialaboutlibrary.ConvenienceBuilder;
 import com.danielstone.materialaboutlibrary.MaterialAboutFragment;
@@ -68,14 +69,14 @@ public class AboutFragment extends MaterialAboutFragment {
     appCardBuilder.addItem(ConvenienceBuilder.createVersionActionItem(c,
             new IconicsDrawable(c)
                 .sizeDp(18),
-            getString(R.string.app_version),
+            World.version(),
             false)
         .setIconRes(R.drawable.ic_info));
 
     appCardBuilder.addItem(ConvenienceBuilder.createWebsiteActionItem(c,
             new IconicsDrawable(c)
                 .sizeDp(18),
-            getString(R.string.app_source_code),
+            BuildConfig.VERSION_NAME,
             false,
             Uri.parse(getString(R.string.app_source_code_url)))
         .setIconRes(R.drawable.ic_source_code));
